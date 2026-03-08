@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Bootcamp — Delta Mavericks</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="https://www.deltamavericks.com/favicon.png">
+    <link rel="shortcut icon" href="https://www.deltamavericks.com/favicon.png">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        void: '#030303',
+                        surface: '#0A0A0A',
+                        glass: 'rgba(255, 255, 255, 0.03)',
+                        gold: '#FFD700',
+                        cyan: '#00F0FF',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #030303;
+            color: #ffffff;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .ambient-glow {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: #030303;
+            overflow: hidden;
+        }
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.6;
+            animation: floatOrb 20s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .orb-1 { top: -10%; left: -10%; width: 70vw; height: 70vw; background: radial-gradient(circle, #1a1a1a 0%, transparent 70%); }
+        .orb-2 { bottom: -20%; right: -20%; width: 80vw; height: 80vw; background: radial-gradient(circle, #0d1218 0%, transparent 70%); }
+        .orb-accent { 
+            top: 50%; left: 50%; width: 40vw; height: 40vw; 
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.05) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            animation-duration: 15s;
+        }
+
+        @keyframes floatOrb {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, -30px) scale(1.1); }
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .glass-card:hover {
+            border-color: rgba(255, 215, 0, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #FFD700 0%, #B8860B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(40px) scale(0.95);
+            filter: blur(10px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            filter: blur(0);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-glow">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-accent"></div>
+        <div class="absolute inset-0 opacity-[0.04]" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E'); pointer-events: none;"></div>
+    </div>
+
+    <!-- NAV -->
+    <nav class="fixed top-0 w-full z-50 px-6 py-6 transition-all duration-300 backdrop-blur-sm border-b border-white/5">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <div class="w-2 h-8 bg-gold rounded-full"></div>
+                <span class="font-mono text-lg font-bold tracking-widest text-white">Delta_Mavericks</span>
+            </a>
+            <a href="index.html" class="text-sm font-mono text-gray-400 hover:text-white transition-colors uppercase tracking-widest">&larr; Back</a>
+        </div>
+    </nav>
+
+    <!-- BOOTCAMP PAGE -->
+    <section class="min-h-screen pt-32 pb-20 relative px-6 overflow-hidden">
+        <!-- Subtle background glow -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gold/[0.03] rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+
+            <!-- Section label -->
+            <div class="reveal-up mb-16">
+                <span class="font-mono text-[10px] md:text-xs text-gold/60 uppercase tracking-[0.3em] border-b border-gold/20 pb-2">Bootcamp registration</span>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-16 md:gap-24 items-start">
+
+                <!-- Left: Why join -->
+                <div class="reveal-up" style="transition-delay: 100ms">
+                    <h2 class="text-3xl md:text-5xl font-bold text-white leading-tight mb-8">
+                        Learn to trade<br>
+                        like we trade.<br>
+                        <span class="text-gradient-gold">From scratch.</span>
+                    </h2>
+                    <div class="space-y-5 text-gray-400 text-base md:text-lg leading-relaxed">
+                        <p>
+                            This isn't a course with slides and quizzes. It's a structured bootcamp where you sit with our trading engine, understand how structural inefficiencies work, and learn the mechanics of rule-based execution in crypto derivatives.
+                        </p>
+                        <p>
+                            We walk you through the same logic that produced a 100% win-rate ledger &mdash; how we read order books, how the ML model flags setups, and what disciplined execution actually looks like when real money is on the line.
+                        </p>
+                    </div>
+
+                    <!-- What you get -->
+                    <div class="mt-10 space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center text-gold text-xs font-mono flex-shrink-0 mt-0.5">01</div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Live market walkthroughs</h4>
+                                <p class="text-xs text-gray-500 mt-1">Watch real trades get identified and executed in real time.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center text-gold text-xs font-mono flex-shrink-0 mt-0.5">02</div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Order book analysis</h4>
+                                <p class="text-xs text-gray-500 mt-1">Understand how structural inefficiencies show up in the data.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center text-gold text-xs font-mono flex-shrink-0 mt-0.5">03</div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Rule-based framework</h4>
+                                <p class="text-xs text-gray-500 mt-1">Build your own system with discipline, not gut calls.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Registration form -->
+                <div class="reveal-up" style="transition-delay: 250ms">
+                    <div class="glass-card p-8 md:p-10 relative overflow-hidden">
+                        <!-- Accent line -->
+                        <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-gold/80 to-transparent"></div>
+
+                        <h3 class="text-2xl font-bold text-white mb-1">Register now</h3>
+                        <p class="text-gray-500 text-sm mb-8">Fill out your details below. We'll reach out with next steps.</p>
+
+                        <form id="registerForm" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                            <div>
+                                <label class="block text-[10px] font-mono text-gold mb-1 tracking-widest">FULL NAME</label>
+                                <input type="text" name="name" required class="w-full bg-black border border-white/20 p-3 text-white focus:border-gold outline-none rounded-sm text-sm">
+                            </div>
+
+                            <div>
+                                <label class="block text-[10px] font-mono text-gold mb-1 tracking-widest">EMAIL ADDRESS</label>
+                                <input type="email" name="email" id="regEmail" required class="w-full bg-black border border-white/20 p-3 text-white focus:border-gold outline-none rounded-sm text-sm">
+                            </div>
+
+                            <div>
+                                <label class="block text-[10px] font-mono text-gold mb-1 tracking-widest">PHONE NUMBER</label>
+                                <input type="tel" name="phone" required class="w-full bg-black border border-white/20 p-3 text-white focus:border-gold outline-none rounded-sm text-sm">
+                            </div>
+
+                            <div>
+                                <label class="block text-[10px] font-mono text-gold mb-1 tracking-widest">COLLEGE / UNIVERSITY</label>
+                                <input type="text" name="college" required class="w-full bg-black border border-white/20 p-3 text-white focus:border-gold outline-none rounded-sm text-sm">
+                            </div>
+
+                            <div>
+                                <label class="block text-[10px] font-mono text-gold mb-1 tracking-widest">STREAM / SPECIALIZATION</label>
+                                <input type="text" name="stream" required placeholder="e.g. Computer Science" class="w-full bg-black border border-white/20 p-3 text-white focus:border-gold outline-none rounded-sm text-sm">
+                            </div>
+
+                            <div>
+                                <label class="block text-[10px] font-mono text-gold mb-1 tracking-widest">YEAR OF STUDY</label>
+                                <div class="relative">
+                                    <select name="year" required class="w-full bg-black border border-white/20 p-3 text-white focus:border-gold outline-none rounded-sm text-sm appearance-none">
+                                        <option value="" disabled selected>Select Year</option>
+                                        <option value="1st Year">1st Year</option>
+                                        <option value="2nd Year">2nd Year</option>
+                                        <option value="3rd Year">3rd Year</option>
+                                        <option value="4th Year">4th Year</option>
+                                        <option value="Graduated">Graduated / Working</option>
+                                    </select>
+                                    <div class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none">&#9660;</div>
+                                </div>
+                            </div>
+
+                            <div class="md:col-span-2 mt-2">
+                                <button type="submit" id="registerSubmitBtn" class="w-full bg-gold/10 border border-gold text-gold font-bold py-4 hover:bg-gold hover:text-black transition-colors uppercase tracking-widest text-sm shadow-[0_0_15px_rgba(255,215,0,0.2)]">
+                                    Submit Registration
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- SUCCESS -->
+                        <div id="registerSuccessPopup" class="hidden mt-6 border border-gold/40 bg-gold/10 text-gold text-center py-4 rounded-md font-mono text-sm">
+                            &#10004; Registration received successfully! We will contact you soon.
+                        </div>
+
+                        <!-- DUPLICATE -->
+                        <div id="registerDuplicatePopup" class="hidden mt-6 border border-red-500/40 bg-red-500/10 text-red-500 text-center py-4 rounded-md font-mono text-sm">
+                            &#9888;&#65039; This email is already registered. Thank you!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black py-12 border-t border-white/10 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center opacity-50 hover:opacity-100 transition-opacity">
+            <div class="text-xs font-mono text-gray-500 mb-4 md:mb-0">
+                &copy; 2026 Delta Mavericks Project.
+            </div>
+            <div class="flex gap-6 text-xs font-mono items-center">
+                <a href="index.html" class="text-gray-500 hover:text-white transition-colors">HOME</a>
+                <div class="text-gray-500 hover:text-white transition-colors cursor-default">
+                    CONTACT &middot;
+                    <a href="mailto:contact@deltamavericks.com" class="text-gold hover:underline ml-1">contact@deltamavericks.com</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- REGISTRATION AJAX -->
+    <script>
+    document.getElementById("registerForm").addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const form = e.target;
+        const submitBtn = document.getElementById("registerSubmitBtn");
+        const successPopup = document.getElementById("registerSuccessPopup");
+        const duplicatePopup = document.getElementById("registerDuplicatePopup");
+        const formData = new FormData(form);
+
+        successPopup.classList.add("hidden");
+        duplicatePopup.classList.add("hidden");
+
+        const originalBtnText = submitBtn.innerText;
+        submitBtn.innerText = "Verifying...";
+        submitBtn.disabled = true;
+        submitBtn.classList.add("opacity-50", "cursor-not-allowed");
+
+        try {
+            const response = await fetch("register.php", {
+                method: "POST",
+                body: formData
+            });
+
+            const result = await response.json();
+
+            if (result.status === "duplicate") {
+                duplicatePopup.classList.remove("hidden");
+            } else if (result.status === "success") {
+                successPopup.classList.remove("hidden");
+                form.reset();
+
+                setTimeout(() => {
+                    successPopup.classList.add("hidden");
+                }, 5000);
+            } else {
+                alert("Registration failed. Please try again.");
+            }
+        } catch (error) {
+            console.error("Error!", error.message);
+            alert("Network error. Could not connect to the server.");
+        } finally {
+            submitBtn.innerText = originalBtnText;
+            submitBtn.disabled = false;
+            submitBtn.classList.remove("opacity-50", "cursor-not-allowed");
+        }
+    });
+    </script>
+
+    <!-- SCROLL REVEAL -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.t
