@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)https://www.deltamavericks.com/ -->
+<html lang="en" class="scroll-smooth"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Delta_Mavericks</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./Delta_Mavericks_files/css2" rel="stylesheet">
+    
+    <script src="./Delta_Mavericks_files/saved_resource"></script>
+    <script src="./Delta_Mavericks_files/cdn.min.js.download"></script>
+    
+    <!-- FAVICON -->
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.deltamavericks.com/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.deltamavericks.com/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.deltamavericks.com/favicon.png">
+<link rel="shortcut icon" href="https://www.deltamavericks.com/favicon.png">
+
+    <script>
+        tailwind.config = {/* Lines 24-46 omitted */}
+    </script>
+
+    <style>
+        body {/* Lines 51-55 omitted */}
+        .ambient-glow {/* Lines 59-64 omitted */}
+        .orb {/* Lines 66-71 omitted */}
+        .orb-1 { top: -10%; left: -10%; width: 70vw; height: 70vw; background: radial-gradient(circle, #1a1a1a 0%, transparent 70%); }
+        .orb-2 { bottom: -20%; right: -20%; width: 80vw; height: 80vw; background: radial-gradient(circle, #0d1218 0%, transparent 70%); }
+        .orb-accent {/* Lines 75-79 omitted */}
+        @keyframes floatOrb {/* Lines 82-84 omitted */}
+        .glass-card {/* Lines 88-94 omitted */}
+        .glass-card:hover {/* Lines 96-99 omitted */}
+        .text-gradient-gold {/* Lines 103-106 omitted */}
+        .text-gradient-metallic {/* Lines 109-112 omitted */}
+        .reveal-up {/* Lines 116-120 omitted */}
+        .reveal-up.active {/* Lines 122-125 omitted */}
+        .mobile-menu {/* Lines 129-131 omitted */}
+        .mobile-menu.open {/* Lines 133-134 omitted */}
+    </style>
+<style>*, ::before, ::after{/* ...tailwindcss... */}</style></head>
+<body x-data="{ mobileMenuOpen: false, contactOpen: false, registerOpen: window.location.search.includes('register') || window.location.hash === '#register' }">
+
+    <div class="ambient-glow">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-accent"></div>
+        <div class="absolute inset-0 opacity-[0.04]" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E'); pointer-events: none;"></div>
+    </div>
+
+    <nav class="fixed top-0 w-full z-50 px-6 py-6 transition-all duration-300 backdrop-blur-sm border-b border-white/5">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-8 bg-gold rounded-full"></div>
+                <span class="font-mono text-lg font-bold tracking-widest text-white">Delta_Mavericks</span>
+            </div>
+
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#who-are-we" class="text-sm font-mono text-gray-400 hover:text-white transition-colors uppercase tracking-widest">Who Are We</a>
+                <a href="#what-we-do" class="text-sm font-mono text-gray-400 hover:text-white transition-colors uppercase tracking-widest">What We Do</a>
+
+                <button @click="contactOpen = true" class="px-6 py-2 border border-gold/50 text-gold font-mono text-xs hover:bg-gold hover:text-black transition-all uppercase tracking-widest rounded-sm">
+                    Contact
+                </button>
+            </div>
+
+            <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+    </nav>
+
+    <div class="fixed inset-0 z-40 bg-black md:hidden mobile-menu flex flex-col items-center justify-center gap-8" :class="mobileMenuOpen ? 'open' : '';"><button @click="mobileMenuOpen = false" class="absolute top-6 right-6 text-gray-500">✕</button>
+        <a @click="mobileMenuOpen = false" href="#who-are-we" class="text-2xl font-bold text-white">WHO ARE WE</a>
+        <a @click="mobileMenuOpen = false" href="#what-we-do" class="text-2xl font-bold text-white">WHAT WE DO</a>
+
+        <button @click="contactOpen = true; mobileMenuOpen = false" class="px-8 py-3 bg-gold text-black font-bold uppercase tracking-widest">
+            Contact
+        </button>
+    </div>
+
+    <header class="relative min-h-screen flex items-center justify-center pt-20 px-4 overflow-hidden">
+        <div class="max-w-5xl w-full text-center z-10">
+            
+            <div class="reveal-up inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold/20 bg-gold/5 mb-8 backdrop-blur-md active">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-gold"></span>
+                </span>
+                <span class="text-[10px] md:text-xs font-mono font-bold text-gold uppercase tracking-[0.2em]">Verified: 51/51 Execution Record</span>
+            </div>
+
+            <h1 class="reveal-up text-5xl md:text-8xl font-black tracking-tighter mb-6 leading-[1.1] md:leading-[1.1] active" style="transition-delay: 100ms">
+                <span class="text-gradient-metallic">STRUCTURAL</span><br>
+                <span class="text-gradient-gold">INEFFICIENCY</span>
+            </h1>
+
+            <p class="reveal-up text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 font-light leading-relaxed px-4 active" style="transition-delay: 200ms">
+                We are marketing a statistical anomaly. A 100% win-rate ledger executed in the world's highest friction environment (India). 
+            </p>
+
+            <div class="reveal-up flex flex-col md:flex-row justify-center gap-4 px-6 active" style="transition-delay: 300ms">
+                <a href="bootcamp.html" class="w-full md:w-auto px-8 py-4 bg-gold text-black font-bold text-sm md:text-base uppercase tracking-widest hover:bg-white transition-colors shadow-[0_0_30px_rgba(255,215,0,0.3)] text-center">
+                    Join Bootcamp
+                </a>
+                <a href="#what-we-do" class="w-full md:w-auto px-8 py-4 border border-white/20 text-white font-mono text-sm md:text-base hover:bg-white/5 transition-colors uppercase tracking-widest flex items-center justify-center gap-2">
+                    What We Do ↓
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="border-y border-white/5 bg-white/[0.02] backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-white/5 border-b border-white/5 md:border-none">
+                <div class="p-6 md:p-10 text-center reveal-up">
+                    <div class="text-3xl md:text-4xl font-mono font-bold text-white mb-2">100%</div>
+                    <div class="text-[10px] md:text-xs text-gray-500 uppercase tracking-widest">Win Rate</div>
+                </div>
+                <div class="p-6 md:p-10 text-center reveal-up" style="transition-delay: 100ms">
+                    <div class="text-3xl md:text-4xl font-mono font-bold text-gold mb-2">51</div>
+                    <div class="text-[10px] md:text-xs text-gray-500 uppercase tracking-widest">Consecutive Trades</div>
+                </div>
+                <div class="p-6 md:p-10 text-center reveal-up" style="transition-delay: 200ms">
+                    <div class="text-3xl md:text-4xl font-mono font-bold text-white mb-2">BTC</div>
+                    <div class="text-[10px] md:text-xs text-gray-500 uppercase tracking-widest">Asset Class</div>
+                </div>
+                <div class="p-6 md:p-10 text-center reveal-up" style="transition-delay: 300ms">
+                    <div class="text-3xl md:text-4xl font-mono font-bold text-red-500 mb-2">MAX</div>
+                    <div class="text-[10px] md:text-xs text-gray-500 uppercase tracking-widest">Friction Env.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHO ARE WE -->
+    <section id="who-are-we" class="py-20 md:py-32 relative px-6">
+        <div class="max-w-7xl mx-auto">
+
+            <!-- Section label -->
+            <div class="reveal-up mb-16">
+                <span class="font-mono text-[10px] md:text-xs text-gold/60 uppercase tracking-[0.3em] border-b border-gold/20 pb-2">01 / Who are we</span>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-16 md:gap-24 items-start">
+
+                <!-- Left: Statement -->
+                <div class="reveal-up" style="transition-delay: 100ms">
+                    <h2 class="text-3xl md:text-5xl font-bold text-white leading-tight mb-8">
+                        A small team.<br>
+                        One strategy.<br>
+                        <span class="text-gold">Zero losses.</span>
+                    </h2>
+                    <div class="space-y-5 text-gray-400 text-base md:text-lg leading-relaxed">
+                        <p>
+                            We're a quantitative trading operation out of India. We built a crypto derivatives engine that finds structural inefficiencies in order books and executes with mechanical precision.
+                        </p>
+                        <p>
+                            We deliberately tested it on Indian exchanges, the highest-friction trading environment on the planet. 30% flat tax on gains, no loss offsets, real slippage on every fill.
+                        </p>
+                        <p class="text-white font-medium">
+                            It hasn't lost yet.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right: Founder card -->
+                <div class="reveal-up" style="transition-delay: 250ms">
+                    <div class="glass-card p-8 md:p-10 relative overflow-hidden">
+                        <!-- Accent line -->
+                        <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-gold/80 to-transparent"></div>
+
+                        <span class="font-mono text-[10px] text-gray-500 uppercase tracking-[0.2em] block mb-6">Founder</span>
+
+                        <h3 class="text-2xl md:text-3xl font-bold text-white mb-1">C Abhishek</h3>
+                        <p class="text-gold font-mono text-sm mb-6">Quantitative Derivatives Trader</p>
+
+                        <div class="space-y-3 text-sm text-gray-400">
+                            <div class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 bg-gold/50 rounded-full flex-shrink-0"></span>
+                                <span>B.Tech &mdash; NITK Surathkal, 2013</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 bg-gold/50 rounded-full flex-shrink-0"></span>
+                                <span>MBA &mdash; IIM Indore, 2018</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 bg-gold/50 rounded-full flex-shrink-0"></span>
+                                <span>Years in quantitative finance before building this engine</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 pt-6 border-t border-white/5">
+                            <p class="text-xs text-gray-500 leading-relaxed">
+                                The trading engine came from studying where markets are structurally broken, not from backtesting patterns until something fit.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT WE DO -->
+    <section id="what-we-do" class="py-20 md:py-32 border-t border-white/5 bg-black/40 backdrop-blur-md relative px-6">
+        <div class="max-w-7xl mx-auto">
+
+            <!-- Section label -->
+            <div class="reveal-up mb-16">
+                <span class="font-mono text-[10px] md:text-xs text-gold/60 uppercase tracking-[0.3em] border-b border-gold/20 pb-2">02 / What we do</span>
+            </div>
+
+            <!-- Top statement -->
+            <div class="reveal-up max-w-3xl mb-20" style="transition-delay: 100ms">
+                <h2 class="text-3xl md:text-5xl font-bold text-white leading-tight mb-6">
+                    AI-powered trading engine.<br>
+                    <span class="text-gray-500">Rule-based. No discretion.</span>
+                </h2>
+                <p class="text-gray-400 text-base md:text-lg leading-relaxed">
+                    We run a machine-learning engine on crypto derivatives. It reads real-time market data &mdash; volatility patterns, price dynamics, order book structure &mdash; and finds high-probability setups the market hasn't priced correctly. Then it executes. No gut feeling. Same rules, every time.
+                </p>
+            </div>
+
+            <!-- Phase cards -->
+            <div class="grid md:grid-cols-2 gap-6 mb-16">
+
+                <!-- Phase 1 -->
+                <a href="bootcamp.html" class="glass-card p-8 md:p-10 reveal-up relative overflow-hidden group block cursor-pointer" style="transition-delay: 150ms">
+                    <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-white/20 to-transparent"></div>
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="font-mono text-[10px] text-gray-500 uppercase tracking-[0.2em]">Phase 1 &middot; Preliminary test</span>
+                        <span class="font-mono text-xs text-gold bg-gold/10 px-2 py-1 rounded-sm">100% Win</span>
+                    </div>
+                    <div class="text-3xl md:text-4xl font-bold text-white mb-1 font-mono" style="filter: blur(6px); user-select: none;">80 <span class="text-lg text-gray-500 font-normal">trades</span></div>
+                    <div class="text-sm text-gray-500 mb-6" style="filter: blur(6px); user-select: none;">46 consecutive trading days</div>
+
+                    <div class="grid grid-cols-2 gap-4 pt-6 border-t border-white/5">
+                        <div>
+                            <div class="text-[10px] text-gray-500 uppercase tracking-widest mb-1">Capital</div>
+                            <div class="text-white font-mono text-sm" style="filter: blur(6px); user-select: none;">&#8377;10,000</div>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-gray-500 uppercase tracking-widest mb-1">Profit</div>
+                            <div class="text-gold font-mono text-sm" style="filter: blur(6px); user-select: none;">&#8377;9,345</div>
+                        </div>
+                    </div>
+                    <p class="text-[10px] text-gray-600 mt-4" style="filter: blur(6px); user-select: none;">Aug 25 &ndash; Oct 9, 2025 &middot; Excl. taxes &amp; brokerage</p>
+
+                    <!-- Bootcamp CTA overlay -->
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
+                        <span class="text-gold font-bold text-sm md:text-base uppercase tracking-widest">Join Bootcamp to Know More &rarr;</span>
+                    </div>
+                </a>
+
+                <!-- Phase 2 -->
+                <a href="bootcamp.html" class="glass-card p-8 md:p-10 reveal-up relative overflow-hidden group block cursor-pointer" style="transition-delay: 250ms">
+                    <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-gold/60 to-transparent"></div>
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="font-mono text-[10px] text-gray-500 uppercase tracking-[0.2em]">Phase 2 &middot; Scaled capital</span>
+                        <span class="font-mono text-xs text-gold bg-gold/10 px-2 py-1 rounded-sm">100% Win</span>
+                    </div>
+                    <div class="text-3xl md:text-4xl font-bold text-white mb-1 font-mono" style="filter: blur(6px); user-select: none;">223 <span class="text-lg text-gray-500 font-normal">trades</span></div>
+                    <div class="text-sm text-gray-500 mb-6" style="filter: blur(6px); user-select: none;">69 consecutive trading days</div>
+
+                    <div class="grid grid-cols-2 gap-4 pt-6 border-t border-white/5">
+                        <div>
+                            <div class="text-[10px] text-gray-500 uppercase tracking-widest mb-1">Capital</div>
+                            <div class="text-white font-mono text-sm" style="filter: blur(6px); user-select: none;">&#8377;3,00,000</div>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-gray-500 uppercase tracking-widest mb-1">Profit</div>
+                            <div class="text-gold font-mono text-sm" style="filter: blur(6px); user-select: none;">&#8377;1,12,089</div>
+                        </div>
+                    </div>
+                    <p class="text-[10px] text-gray-600 mt-4" style="filter: blur(6px); user-select: none;">Nov 9, 2025 &ndash; Jan 16, 2026 &middot; Excl. taxes &amp; brokerage</p>
+
+                    <!-- Bootcamp CTA overlay -->
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
+                        <span class="text-gold font-bold text-sm md:text-base uppercase tracking-widest">Join Bootcamp to Know More &rarr;</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Process strip -->
+            <div class="reveal-up glass-card p-8 md:p-10" style="transition-delay: 300ms">
+                <div class="flex flex-col md:flex-row md:items-center gap-8 md:gap-0">
+                    <div class="flex-1 text-center md:text-left">
+                        <div class="font-mono text-[10px] text-gray-500 uppercase tracking-widest mb-2">Step 1</div>
+                        <div class="text-white font-bold">Read market data</div>
+                        <div class="text-xs text-gray-500 mt-1">Volatility, order book, price action</div>
+                    </div>
+                    <div class="hidden md:block text-gold/30 text-2xl px-4">&rarr;</div>
+                    <div class="flex-1 text-center md:text-left">
+                        <div class="font-mono text-[10px] text-gray-500 uppercase tracking-widest mb-2">Step 2</div>
+                        <div class="text-white font-bold">Identify inefficiency</div>
+                        <div class="text-xs text-gray-500 mt-1">ML model flags mispriced setups</div>
+                    </div>
+                    <div class="hidden md:block text-gold/30 text-2xl px-4">&rarr;</div>
+                    <div class="flex-1 text-center md:text-left">
+                        <div class="font-mono text-[10px] text-gray-500 uppercase tracking-widest mb-2">Step 3</div>
+                        <div class="text-white font-bold">Execute trade</div>
+                        <div class="text-xs text-gray-500 mt-1">Rule-based, no human discretion</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Strategy subsection: Beyond Algorithm -->
+            <div class="reveal-up mb-16 mt-20">
+                <span class="font-mono text-[10px] md:text-xs text-gold/60 uppercase tracking-[0.3em] border-b border-gold/20 pb-2">02.1 / Strategy</span>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-16 md:gap-24 items-start">
+                <div class="reveal-up" style="transition-delay: 350ms">
+                    <h3 class="text-3xl md:text-5xl font-black mb-8 text-white leading-tight">
+                        Beyond Algorithm.<br>
+                        <span class="text-gold">Pure Structural Alpha.</span>
+                    </h3>
+                    <p class="text-gray-400 mb-8 leading-relaxed text-base md:text-lg">
+                        Most funds optimize for low friction. We went the opposite way. By executing on Indian exchanges—subject to high taxation and slippage—we proved the strategy works under the harshest breakeven conditions possible.
+                    </p>
+                    
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4 group">
+                            <div class="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center text-gold mt-1 group-hover:bg-gold group-hover:text-black transition-colors font-mono text-sm">01</div>
+                            <div>
+                                <h4 class="font-bold text-white">Reverse Engineering Blueprint</h4>
+                                <p class="text-sm text-gray-500 mt-1">Extract logic transferable to ETH &amp; Altcoins.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4 group">
+                            <div class="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center text-gold mt-1 group-hover:bg-gold group-hover:text-black transition-colors font-mono text-sm">02</div>
+                            <div>
+                                <h4 class="font-bold text-white">Defensible Moat</h4>
+                                <p class="text-sm text-gray-500 mt-1">Proprietary data that cannot be scraped.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="grid gap-6">
+                    <div class="glass-card p-8 reveal-up" style="transition-delay: 400ms">
+                        <div class="text-gold text-3xl mb-4">★</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Blueprint Data</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">Reveals execution logic &amp; structural loopholes in order books.</p>
+                    </div>
+                    <div class="glass-card p-8 reveal-up" style="transition-delay: 500ms">
+                        <div class="text-cyan text-3xl mb-4">⚡</div>
+                        <h3 class="text-xl font-bold text-white mb-2">First-Mover</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">Opportunity to dominate the largest crypto derivative market.</p>
+                    </div>
+                    <div class="glass-card p-8 reveal-up" style="transition-delay: 600ms">
+                        <div class="text-purple-500 text-3xl mb-4">∞</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Scalability</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">Framework extends beyond BTC to other high-volume assets.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="benchmarks" class="py-20 md:py-32 border-t border-white/5 bg-black/40 backdrop-blur-md px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16 reveal-up">
+                <h2 class="text-2xl md:text-3xl font-bold uppercase tracking-widest text-white mb-4">Global Benchmarks</h2>
+                <p class="text-gray-500">Comparing win-rates across the industry's titans.</p>
+            </div>
+
+            <div class="space-y-8">
+                <div class="reveal-up group">
+                    <div class="flex justify-between text-xs md:text-sm font-mono text-gray-400 mb-3">
+                        <span>RENAISSANCE MEDALLION</span>
+                        <span>~60%</span>
+                    </div>
+                    <div class="w-full h-3 bg-white/5 rounded-full overflow-hidden">
+                        <div class="h-full bg-gray-600 w-0 group-[.active]:w-[60%] transition-all duration-[1.5s] ease-out"></div>
+                    </div>
+                </div>
+
+                <div class="reveal-up group" style="transition-delay: 100ms">
+                    <div class="flex justify-between text-xs md:text-sm font-mono text-gray-400 mb-3">
+                        <span>CITADEL SECURITIES</span>
+                        <span>~65%</span>
+                    </div>
+                    <div class="w-full h-3 bg-white/5 rounded-full overflow-hidden">
+                        <div class="h-full bg-gray-600 w-0 group-[.active]:w-[65%] transition-all duration-[1.5s] ease-out"></div>
+                    </div>
+                </div>
+
+                <div class="reveal-up group mt-12" style="transition-delay: 200ms">
+                    <div class="flex justify-between text-sm md:text-base font-mono text-gold font-bold mb-3">
+                        <span>Delta Mavericks ledger</span>
+                        <span>100%</span>
+                    </div>
+                    <div class="w-full h-8 bg-black rounded-sm overflow-hidden border border-gold/30 relative shadow-[0_0_30px_rgba(255,215,0,0.15)]">
+                        <div class="absolute inset-0 w-0 group-[.active]:w-full bg-gradient-to-r from-yellow-800 to-gold transition-all duration-[2s] ease-out flex items-center justify-end px-4">
+                            <span class="text-[10px] text-black font-bold uppercase tracking-widest opacity-0 group-[.active]:opacity-100 transition-opacity delay-[2s]">Unprecedented</span>
+                        </div>
+                    </div>
+                    <p class="text-[10px] text-right text-gray-500 mt-2">*Based on 51 consecutive live trades</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 md:py-32 relative px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 reveal-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Valuation Rationale</h2>
+                <div class="w-20 h-1 bg-gold mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass-card p-8 md:p-12 reveal-up relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <svg class="w-24 h-24 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    
+                    <h3 class="text-gold font-mono text-xs uppercase tracking-widest mb-4">Alpha Extraction (DCF)</h3>
+                    <div class="text-4xl md:text-5xl font-bold text-white mb-4">$25M - $50M</div>
+                    <p class="text-gray-400 mb-8 text-sm md:text-base">Target for exclusive global sale. Based on $200M+ potential annual alpha deployment with leverage.</p>
+                    
+                    <button @click="contactOpen = true" class="w-full py-4 border border-white/20 text-white font-bold hover:bg-white hover:text-black transition-colors uppercase tracking-widest text-xs md:text-sm">
+                        Inquire Exclusive
+                    </button>
+                </div>
+
+                <div class="glass-card p-8 md:p-12 reveal-up relative overflow-hidden group" style="transition-delay: 100ms">
+                     <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <svg class="w-24 h-24 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path></svg>
+                    </div>
+
+                    <h3 class="text-cyan font-mono text-xs uppercase tracking-widest mb-4">Licensing Model</h3>
+                    <div class="text-4xl md:text-5xl font-bold text-white mb-4">$5M - $10M</div>
+                    <p class="text-gray-400 mb-8 text-sm md:text-base">Per buyer. Non-exclusive rights for up to 10 qualified institutional entities.</p>
+                    
+                    <button @click="contactOpen = true" class="w-full py-4 border border-white/20 text-white font-bold hover:bg-white hover:text-black transition-colors uppercase tracking-widest text-xs md:text-sm">
+                        Inquire License
+                    </button>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center reveal-up">
+                <button @click="contactOpen = true" class="bg-gold text-black px-12 py-5 font-bold text-lg uppercase tracking-widest hover:scale-105 transition-transform shadow-[0_0_30px_rgba(255,215,0,0.4)] rounded-sm">
+                    Initiate Acquisition
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="bg-black py-12 border-t border-white/10 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center opacity-50 hover:opacity-100 transition-opacity">
+            <div class="text-xs font-mono text-gray-500 mb-4 md:mb-0">
+                © 2026 Delta Mavericks Project.
+            </div>
+            <div class="flex gap-6 text-xs font-mono items-center">
+    <a href="https://www.deltamavericks.com/#" class="text-gray-500 hover:text-white transition-colors">
+        CONFIDENTIALITY
+    </a>
+
+    <a href="https://www.deltamavericks.com/#" class="text-gray-500 hover:text-white transition-colors">
+        DISCLAIMER
+    </a>
+
+    <div class="text-gray-500 hover:text-white transition-colors cursor-default">
+        CONTACT US · 
+        <a href="mailto:quant@deltamavericks.com" class="text-gold hover:underline ml-1">
+            quant@deltamavericks.com
+        </a>
+    </div>
+</div>
+
+        </div>
+    </footer>
+
+    <!-- CONTACT MODAL -->
+<div x-show="contactOpen" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md" style="display: none;">
+    
+    <div @click.away="contactOpen = false" class="bg-[#0a0a0a] border border-white/10 w-full max-w-lg p-8 relative shadow-2xl rounded-lg overflow-hidden">
+
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold to-yellow-900"></div>
+
+        <button @click="contactOpen = false" class="absolute top-4 right-4 text-gray-500 hover:text-white">✕</button>
+        
+        <h3 class="text-2xl font-bold text-white mb-2">Fill The Form</h3>
+        <p class="text-gray-400 text-sm mb-6">
+            Serious inquiries only.
+        </p>
+
+        <!-- FORM (AJAX ENABLED) -->
+        <form id="contactForm" class="space-y-4">
+
+            <div>
+                <label class="block text-[10px] font-mono text-gold mb-1 tracking-widest">NAME</label>
+                <input type="text" name="name" required="" class="w-full bg-black border border-white/20 p-4 text-white focus:border-gold outline-none rounded-sm text-sm">
+            </div>
+
+            <div>
+                <label class="block text-[10px] font-mono text-gold mb-1 tracking-widest">EMAIL</label>
+                <input type="email" name="email" required="" class="w-full bg-black border border-white/20 p-4 text-white focus:border-gold outline-none rounded-sm text-sm">
+            </div>
+
+            <div>
+                <label class="block text-[10px] font-mono text-gold mb-1 tracking-widest">INQUIRY TYPE</label>
+                <div class="relative">
+                    <select name="inquiry" class="w-full bg-black border border-white/20 p-4 text-white focus:border-gold outline-none rounded-sm text-sm appearance-none">
+                        <option>Exclusive Global Sale</option>
+                        <option>Non-Exclusive License</option>
+                        <option>Partnership / Hybrid Model</option>
+                    </select>
+                    <div class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none">▼</div>
+                </div>
+            </div>
+
+            <button type="submit" class="w-full bg-white text-black font-bold py-4 hover:bg-gold transition-colors uppercase tracking-widest text-sm shadow-lg">
+                Submit Request
+            </button>
+        </form>
+
+        <!-- SUCCESS POPUP -->
+        <div id="successPopup" class="hidden mt-6 border border-gold/40 bg-gold/10 text-gold text-center py-4 rounded-md font-mono text-sm">
+            ✔ Request submitted successfully. Redirecting…
+        </div>
+
+    </div>
+</div>
+
+<!-- Registration modal removed — form now lives on bootcamp.html -->
+
+<!-- CONTACT AJAX SCRIPT -->
+<script>
+document.getElementById("contactForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const popup = document.getElementById("successPopup");
+    const formData = new FormData(form);
+
+    try {
+        const response = await fetch("contact.php", {
+            method: "POST",
+            body: formData
+        });
+
+        const result = await response.json();
+
+        if (result.status === "success") {
+            popup.classList.remove("hidden");
+
+            setTimeout(() => {
+                window.location.href = "/";
+            }, 2500);
+        } else {
+            alert("Submission failed. Please try again.");
+        }
+
+    } catch (error) {
+        alert("Network error. Please try again later.");
+    }
+});
+</script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal-up').forEach(el => observer.observe(el));
+        });
+    </script>
+
+</body></html>
+<!DOCTYPE html>
+<!-- saved from url=(0031)https://www.deltamavericks.com/ -->
+<html lang="en" class="scroll-smooth"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Delta_Mavericks</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./Delta_Mavericks_files/css2" rel="stylesheet">
+    
+    <script src="./Delta_Mavericks_files/saved_resource"></script>
+    <script src="./Delta_Mavericks_files/cdn.min.js.download"></script>
+    
+    <!-- FAVICON -->
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.deltamavericks.com/favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.deltamavericks.com/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.deltamavericks.com/favicon.png">
+<link rel="shortcut icon" href="https://www.deltamavericks.com/favicon.png">
+
+    <script>
+        tailwind.config = {/* Lines 24-46 omitted */}
+    </script>
+
+    <style>
+        body {/* Lines 51-55 omitted */}
+        .ambient-glow {/* Lines 59-64 omitted */}
+        .orb {/* Lines 66-71 omitted */}
+        .orb-1 { top: -10%; left: -10%; width: 70vw; height: 70vw; background: radial-gradient(circle, #1a1a1a 0%, transparent 70%); }
+        .orb-2 { bottom: -20%; right: -20%; width: 80vw; height: 80vw; background: radial-gradient(circle, #0d1218 0%, transparent 70%); }
+        .orb-accent {/* Lines 75-79 omitted */}
+        @keyframes floatOrb {/* Lines 82-84 omitted */}
+        .glass-card {/* Lines 88-94 omitted */}
+        .glass-card:hover {/* Lines 96-99 omitted */}
+        .text-gradient-gold {/* Lines 103-106 omitted */}
+        .text-gradient-metallic {/* Lines 109-112 omitted */}
+        .reveal-up {/* Lines 116-120 omitted */}
+        .reveal-up.active {/* Lines 122-125 omitted */}
+        .mobile-menu {/* Lines 129-131 omitted */}
+        .mobile-menu.open {/* Lines 133-134 omitted */}
+    </style>
+<style>*, ::before, ::after{/* ...tailwindcss... */}</style></head>
+<body x-data="{ mobileMenuOpen: false, contactOpen: false, registerOpen: window.location.search.includes('register') || window.location.hash === '#register' }">
+
+    <div class="ambient-glow">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-accent"></div>
+        /* Lines 143-144 omitted */
+    </div>
+
+    <nav class="fixed top-0 w-full z-50 px-6 py-6 transition-all duration-300 backdrop-blur-sm border-b border-white/5">
+        /* Lines 147-166 omitted */
+    </nav>
+
+    <div class="fixed inset-0 z-40 bg-black md:hidden mobile-menu flex flex-col items-center justify-center gap-8" :class="mobileMenuOpen ? 'open' : '';">
+        /* Lines 169-176 omitted */
+    </div>
+
+    <header class="relative min-h-screen flex items-center justify-center pt-20 px-4 overflow-hidden">
+        /* Lines 179-207 omitted */
+    </header>
+
+    <section class="border-y border-white/5 bg-white/[0.02] backdrop-blur-sm">
+        /* Lines 210-230 omitted */
+    </section>
+
+    <!-- WHO ARE WE -->
+    <section id="who-are-we" class="py-20 md:py-32 relative px-6">
+        /* Lines 234-298 omitted */
+    </section>
+
+    <!-- WHAT WE DO -->
+    <section id="what-we-do" class="py-20 md:py-32 border-t border-white/5 bg-black/40 backdrop-blur-md relative px-6">
+        /* Lines 302-457 omitted */
+    </section>
+
+    <section id="benchmarks" class="py-20 md:py-32 border-t border-white/5 bg-black/40 backdrop-blur-md px-6">
+        /* Lines 460-501 omitted */
+    </section>
+
+    <section class="py-20 md:py-32 relative px-6">
+        /* Lines 504-546 omitted */
+    </section>
+
+
+    <footer class="bg-black py-12 border-t border-white/10 px-6">
+    <a href="https://www.deltamavericks.com/#" class="text-gray-500 hover:text-white transition-colors">
+        /* Lines 556-557 omitted */
+    </a>
+
+    <a href="https://www.deltamavericks.com/#" class="text-gray-500 hover:text-white transition-colors">
+        /* Lines 560-561 omitted */
+    </a>
+
+    <div class="text-gray-500 hover:text-white transition-colors cursor-default">
+        /* Lines 564-568 omitted */
+    </div>
+</div>
+
+        </div>
+    </footer>
+
+    <!-- CONTACT MODAL -->
+<div x-show="contactOpen" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md" style="display: none;">
+    
+    <div @click.away="contactOpen = false" class="bg-[#0a0a0a] border border-white/10 w-full max-w-lg p-8 relative shadow-2xl rounded-lg overflow-hidden">
+/* Lines 578-623 omitted */
+    </div>
+</div>
+
+<!-- Registration modal removed — form now lives on bootcamp.html -->
+
+<!-- CONTACT AJAX SCRIPT -->
+<script>
+document.getElementById("contactForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const popup = document.getElementById("successPopup");
+    const formData = new FormData(form);
+
+    try {
+        /* Lines 638-654 omitted */
+
+    } catch (error) {/* Lines 656-657 omitted */}
+});
+</script>
+
+    <script>
+        /* Lines 662-673 omitted */
+    </script>
+
+</body></html>
